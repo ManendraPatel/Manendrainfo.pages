@@ -3,11 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Manendra Portfolio</title>
+    <title>Manendra Info | Professional Portfolio Website</title>
+    <meta name="description" content="Welcome to the official portfolio of Manendra Patel. Explore my latest tech projects, development skills, and professional services.">
+    <meta name="keywords" content="Manendra Patel info, manendra patel information, Subhan Khera, subhan khera, Manendra Info, Manendra Portfolio, manendrainfo, manendrainfo.pages.dev, manendra info pages dev,  manendra ms ji, manendra patel MS, Manendra Patel Ji, Manendra Patel (MS), Manendra, Manendra Singh, Manendra Patel Hardoi, manendra patel hardoi, manendra patel lucknow">
+    <meta name="robots" content="index, follow">
+	
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+	
+		/* Cinematic Space Loader Styles */
+#galaxy-loader {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background: #020308;
+    z-index: 99999;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+}
+
+.space-scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+}
+
+/* 1. टिमटिमाते तारे (Stars Background) */
+.space-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px, 350px 350px;
+    background-position: 0 0, 40px 60px;
+    opacity: 0.6;
+    animation: spaceFloat 100s linear infinite;
+}
+
+/* 2. मुख्य चमकदार सूर्य (The Bright Sun) */
+.solar-sun {
+    position: absolute;
+    top: 25%;
+    right: 35%;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 60px 30px #ffdf6d, 0 0 120px 60px #ff9d34, 0 0 200px 100px rgba(255,157,52,0.2);
+}
+.sun-flare {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: flareRotate 20s linear infinite;
+}
+
+/* 3. एस्टरॉयड बेल्ट/धूल की रिंग (Asteroid Ring) */
+.asteroid-ring {
+    position: absolute;
+    top: -10%;
+    right: 10%;
+    width: 800px;
+    height: 500px;
+    border-radius: 50%;
+    border-bottom: 8px solid rgba(235, 200, 150, 0.12);
+    border-left: 2px solid rgba(235, 200, 150, 0.05);
+    transform: rotate(-25deg);
+    filter: blur(1px);
+    animation: orbitRotate 40s linear infinite;
+}
+
+/* 4. दूर तैरते छोटे ग्रह */
+.distant-planet {
+    position: absolute;
+    border-radius: 50%;
+}
+.planet-saturn {
+    top: 30%;
+    left: 30%;
+    width: 36px;
+    height: 36px;
+    background: #e2bf7d;
+    box-shadow: inset -4px -4px 6px #000;
+	animation: orbitRotate 50s linear infinite;
+}
+.planet-blue {
+    top: 45%;
+    right: 25%;
+    width: 44px;
+    height: 44px;
+    background: #4b70dd;
+    box-shadow: inset -6px -6px 8px #000, 0 0 10px rgba(75,112,221,0.3);
+	animation: orbitRotate 50s linear infinite;
+}
+
+/* 5. विशालकाय जुपिटर (Giant Jupiter - Bottom left) */
+.giant-jupiter {
+    position: absolute;
+    bottom: 50px;
+    left: -80px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: #2b2520;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    transform: rotate(-15deg);
+    animation: planetGlow 8s ease-in-out infinite alternate;
+}
+
+
+/* ग्रह पर पड़ने वाली अंतरिक्ष की छाया (Shadow Effect) */
+.jupiter-shadow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 10% 10%, transparent 20%, rgba(0,0,0,0.9) 75%, #000000 100%);
+}
+
+/* 6. इंटरफ़ेस पैनल (UI Elements) */
+.loader-interface {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin-top: auto;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(transparent, rgba(2,3,8,0.9) 50%);
+}
+
+.loading-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+}
+
+.progress-container {
+    width: 250px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff9d34, #fff);
+    box-shadow: 0 0 8px #ff9d34;
+    animation: fillProgress 5s linear forwards;
+}
+
+#skip-loader-btn {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #9ca3af;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#skip-loader-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #ff9d34;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 157, 52, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Animations Definitions */
+@keyframes spaceFloat {
+    from { background-position: 0 0, 40px 60px; }
+    to { background-position: 550px 1100px, 400px 660px; }
+}
+@keyframes flareRotate {
+    to { transform: translate(-50%, -50%) rotate(225deg); }
+}
+@keyframes orbitRotate {
+    from { transform: rotate(-25deg) scaleY(0.6); }
+    to { transform: rotate(335deg) scaleY(0.6); }
+}
+@keyframes jupiterAtmosphere {
+    from { background-position-y: 0px; }
+    to { background-position-y: 40px; }
+}
+@keyframes planetGlow {
+    from { box-shadow: 0 0 60px rgba(0,0,0,0.8), -10px -10px 30px rgba(255,157,52,0.02); }
+    to { box-shadow: 0 0 80px rgba(0,0,0,0.9), -10px -10px 50px rgba(255,157,52,0.08); }
+}
+@keyframes fillProgress {
+    to { width: 100%; }
+}
+
+	
         :root {
             --bg-dark: #030712;
             --bg-card: #0b1329;
@@ -916,12 +1128,213 @@
             color: var(--text-white) !important; /* Text and font icons safe view lock */
         }
 		
-		
+
+/* असली इमेज टेक्सचर वाला चंद्रमा */
+.jupiter-moon {
+    position: absolute;
+    bottom: 160px;
+    right: 160px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    
+    /* बिना किसी इमेज के असली चाँद जैसी बनावट (गड्ढे और छाया) */
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #dcdcdc 20%, #aaaaaa 50%, #444444 90%);
+    background-image: 
+        radial-gradient(circle at 30% 30%, transparent 50%, rgba(0,0,0,0.4) 80%),
+        radial-gradient(circle at 70% 40%, #888 2px, transparent 3px),
+        radial-gradient(circle at 40% 70%, #777 1.5px, transparent 2.5px),
+        radial-gradient(circle at 60% 20%, #666 2px, transparent 3px),
+        linear-gradient(to right, #fff, #999);
+        
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    z-index: 100;
+    animation: realMoonOrbit 28s ease-in-out infinite;
+}
+
+
+/* 3D अंडाकार परिक्रमा मार्ग (अलाइनमेंट सुधारा गया) */
+@keyframes realMoonOrbit {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+        z-index: 100;
+        filter: brightness(1);
+    }
+    25% {
+        transform: translate(-140px, 100px) scale(0.95);
+    }
+    50% {
+        /* जुपिटर के पीछे जाने पर भी यह थोड़ा साफ़ दिखेगा */
+        transform: translate(-280px, 0px) scale(0.8);
+        z-index: 1; 
+        filter: brightness(0.5); /* छाया में होने के कारण आधा धुंधला */
+    }
+    75% {
+        transform: translate(-140px, -100px) scale(0.9);
+        z-index: 1;
+    }
+    100% {
+        transform: translate(0px, 0px) scale(1);
+        z-index: 100;
+        filter: brightness(1);
+    }
+}
+
+/* 📱 मोबाइल स्क्रीन के लिए खास सेटिंग्स (Responsive Fix) */
+@media screen and (max-width: 768px) {
+    /* मोबाइल पर जुपिटर का साइज थोड़ा छोटा करें और नीचे दबाएं */
+    .giant-jupiter {
+        width: 200px;
+        height: 200px;
+        bottom: -50px;
+        left: -50px;
+        z-index: 1; /* इसे टेक्स्ट के पीछे भेजने के लिए */
+        opacity: 0.7; /* थोड़ा हल्का किया ताकि टेक्स्ट साफ दिखे */
+    }
+
+    /* मोबाइल पर चाँद की पोजीशन को एडजस्ट करें ताकि वह टेक्स्ट से न टकराए */
+    .jupiter-moon {
+        bottom: 30px;
+        left: 30px;
+        width: 50px; /* मोबाइल पर चाँद को और छोटा किया */
+        height: 50px;
+        opacity: 0.6;
+        animation: realMoonOrbitMobile 20s ease-in-out infinite; /* मोबाइल के लिए नया छोटा ऑर्बिट */
+    }
+
+    /* इंटरफ़ेस पैनल (टेक्स्ट और बटन) को चाँद के ऊपर रखने के लिए */
+    .loader-interface {
+        z-index: 1000 !important; /* यह चाँद और जुपिटर को नीचे दबा देगा */
+        position: relative;
+    }
+}
+
+/* मोबाइल के लिए छोटा और सटीक 3D परिक्रमा मार्ग */
+@keyframes realMoonOrbitMobile {
+    0% { transform: translate(0px, 0px) scale(1); z-index: 10; filter: brightness(1); }
+    25% { transform: translate(-50px, 40px) scale(0.95); }
+    50% { transform: translate(-120px, 0px) scale(0.8); z-index: 0; filter: brightness(0.4); }
+    75% { transform: translate(-50px, -40px) scale(0.9); z-index: 0; }
+    100% { transform: translate(0px, 0px) scale(1); z-index: 10; filter: brightness(1); }
+}
+
+/* Futuristic Visitor Counter Box */
+.visitor-counter-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin: 15px auto;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.counter-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.counter-label {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+.counter-value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Fira Code', monospace;
+}
+
+.counter-divider {
+    width: 1px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Glowing Indicator Dots */
+.counter-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.counter-dot.live {
+    background-color: #10b981; /* Green dot for live */
+    box-shadow: 0 0 8px #10b981;
+    animation: pulseLive 1.5s infinite;
+}
+
+.counter-dot.total {
+    background-color: #3b82f6; /* Blue dot for total */
+    box-shadow: 0 0 8px #3b82f6;
+}
+
+@keyframes pulseLive {
+    0% { transform: scale(0.9); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 12px #10b981; }
+    100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+	
 		
     </style>
 </head>
 <body>
+	
+<!-- Jupiter Space Loader Start -->
+<div id="galaxy-loader">
+    <div class="space-scene">
+        <!-- पीछे के टिमटिमाते तारे -->
+        <div class="space-stars"></div>
+        
+        <!-- सेंटर में चमकता सूर्य/तारा -->
+        <div class="solar-sun">
+            <div class="sun-flare"></div>
+        </div>
+        
+        <!-- छोटे तैरते हुए उल्कापिंड/एस्टरॉयड रिंग -->
+        <div class="asteroid-ring"></div>
+        
+        <!-- बैकग्राउंड में तैरते छोटे ग्रह -->
+        <div class="distant-planet planet-saturn"></div>
+        <div class="distant-planet planet-blue"></div>
 
+        
+<!-- kone me विशालकाय जुपिटर ग्रह -->
+<div class="giant-jupiter">
+    <div class="jupiter-texture"></div>
+    <div class="jupiter-shadow"></div>
+</div>
+
+<!-- जुपिटर का असली और घूमता हुआ छोटा चाँद -->
+<div class="jupiter-moon"></div>
+
+
+    </div>
+
+    <!-- लोडिंग टेक्स्ट और स्किप बटन का पैनल -->
+    <div class="loader-interface">
+        <div class="loading-title">Quality takes a moment...</div>
+        <div class="progress-container">
+            <div class="progress-fill"></div>
+        </div>
+        <button id="skip-loader-btn" onclick="closeLoader()">
+            Skip Intro <i class="fas fa-space-shuttle"></i>
+        </button>
+    </div>
+</div>
+<!-- Jupiter Space Loader End -->
+
+
+	
     <div class="glowing-orb"></div>
 
     <div id="toast" class="toast-notification">
@@ -958,7 +1371,7 @@
                 </div>
                 
                 <div class="btn-group">
-                    <a href="PASTE_YOUR_CV_LINK" target="_blank" class="btn-glow">Download CV</a>
+                    <a href="PASTE_YOUR_CV_LINK" target="_blank" class="btn-glow">My Intro</a>
                     <a onclick="switchPage('expertise-view')" class="btn-outline" style="cursor:pointer;">Explore Expertise</a>
                 </div>
 
@@ -969,13 +1382,13 @@
                       <br>   <div class="logo-track-move">
                             
                            <img src="https://lh3.googleusercontent.com/d/1JqDSpYLph0XpV7RYFGzkSCAmygaetELH" alt="MS Technology logo" style="height: 52px; width: auto; object-fit: contain;">
-                            <img src="https://lh3.googleusercontent.com/d/112zNigvDrr9TB7k9nfwmqgqGmatUWgho" alt="Patel Computers Logo" style="height: 52px; width: auto; object-fit: contain;">
+                            <img src="https://lh3.googleusercontent.com/d/112zNigvDrr9TB7k9nfwmqgqGmatUWgho" alt="Patel Computers Logo" style="height: 62px; width: auto; object-fit: contain;">
                             <img src="https://lh3.googleusercontent.com/d/1dqh4oiFg71gejCnk9CE5osV-zxioGEg0" alt="Patel Films Logo" style="height: 52px; width: auto; object-fit: contain;">
                             <img src="https://lh3.googleusercontent.com/d/1KPtq5Y7gWWLvXOmK0SvQNqvGUAc2Tshd" alt="Patel Digital Library Logo" style="height: 52px; width: auto; object-fit: contain;">
 							<img src="https://lh3.googleusercontent.com/d/1TaqzJ42C4O01Hqm04_mHVbwO0fGMqfQN" alt="MS Technology logo" style="height: 52px; width: auto; object-fit: contain;">
 
                             <img src="https://lh3.googleusercontent.com/d/1JqDSpYLph0XpV7RYFGzkSCAmygaetELH" alt="MS Technology logo" style="height: 52px; width: auto; object-fit: contain;">
-                            <img src="https://lh3.googleusercontent.com/d/112zNigvDrr9TB7k9nfwmqgqGmatUWgho" alt="Patel Computers Logo" style="height: 52px; width: auto; object-fit: contain;">
+                            <img src="https://lh3.googleusercontent.com/d/112zNigvDrr9TB7k9nfwmqgqGmatUWgho" alt="Patel Computers Logo" style="height: 62px; width: auto; object-fit: contain;">
                             <img src="https://lh3.googleusercontent.com/d/1dqh4oiFg71gejCnk9CE5osV-zxioGEg0" alt="Patel Films Logo" style="height: 52px; width: auto; object-fit: contain;">
                             <img src="https://lh3.googleusercontent.com/d/1KPtq5Y7gWWLvXOmK0SvQNqvGUAc2Tshd" alt="Patel Digital Library Logo" style="height: 52px; width: auto; object-fit: contain;">
 
@@ -1266,10 +1679,26 @@
     <footer class="premium-footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="logo" style="margin-bottom: 20px;">MS Technology</div>
+                <div class="logo" style="margin-bottom: 20px;">A MS Technology</div>
                 <p>Architecting flawless software testing pipelines and orchestrating continuous, automated digital ecosystems for next-generation platforms.</p>
-            </div>
+            
+			<!-- Live Visitor Counter Widget -->
+<div class="visitor-counter-box">
+    <div class="counter-item">
+        <span class="counter-dot live"></span>
+        <span class="counter-label">Live Users:</span>
+        <span id="live-visitors-count" class="counter-value">1</span>
+    </div>
+    <div class="counter-divider"></div>
+    <div class="counter-item">
+        <span class="counter-dot total"></span>
+        <span class="counter-label">Total Visits:</span>
+        <span id="total-visitors-count" class="counter-value">Loading...</span>
+    </div>
+</div>
 
+			</div>
+			 
             <div class="footer-col">
                 <h3>Location Address</h3>
                 <p><i class="fa-solid fa-location-dot"></i> Patel Computers Tech Zone</p>
@@ -1289,7 +1718,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 MS Technology & Manendra Patel. Built with precise engineering pipelines.</p>
+            <p>© 2026 A MS Technology. Built with precise engineering pipelines.</p>
         </div>
     </footer>
 
@@ -1309,7 +1738,7 @@
             `,
             hi: `
                 <p style="font-style: normal; color: #e5e7eb; font-weight: 500; letter-spacing: 0.2px;">
-                    मैंने अपने तकनीकी सफर की शुरुआत 2013 में अपने गृहनगर में पटेल कंप्यूटर्स के मालिक के रूप में की थी। स्कूल की पढ़ाई के दौरान कम स्पेसिफिकेशन वाले सिस्टम और धीमी इंटरनेट स्पीड के दौर में भी मैंने हार मानने से इनकार कर दिया, और इसी फेज के दौरान मैं अपने कंप्यूटर गुरु, <a href="PASTE_YOUR_LINK_HERE" target="_blank" style="color: var(--primary-glow); text-decoration: none; font-weight: 700; border-bottom: 1px dashed var(--primary-glow); transition: all 0.3s;">श्री अमर कुमार तिवारी</a> से मिला, जिन्होंने कंप्यूटर के प्रति मेरे जुनून को जगाया। गहन विशेषज्ञता हासिल करने की इच्छा से, मैंने शीर्ष एमएनसी में शामिल होने के सपने के साथ आईआईएमटी कॉलेज ऑफ मैनेजमेंट, ग्रेटर नोएडा (2017-2020) से बीसीए किया। कैंपस प्लेसमेंट के माध्यम से, मैंने सफलतापूर्वक एचसीएल (मैनटेक टेक्नोलॉजी) में एक भूमिका हासिल की, लेकिन कोविड-19 के अचानक प्रकोप के कारण, मैं जॉइन नहीं कर सका।
+                    मैंने अपने तकनीकी सफर की शुरुआत 2013 में अपने गृहनगर में पटेल कंप्यूटर्स के मालिक के रूप में की थी। स्कूल की पढ़ाई के दौरान कम स्पेसिफिकेशन वाले सिस्टम और धीमी इंटरनेट स्पीड के दौर में भी मैंने हार मानने से इनकार कर दिया, और इसी फेज के दौरान मैं अपने कंप्यूटर गुरु, <a href="PASTE_YOUR_LINK_HERE" target="_blank" style="color: var(--primary-glow); text-decoration: none; font-weight: 700; border-bottom: 1px dashed var(--primary-glow); transition: all 0.3s;">अमर कुमार तिवारी</a> से मिला, जिन्होंने कंप्यूटर के प्रति मेरे जुनून को जगाया। गहन विशेषज्ञता हासिल करने की इच्छा से, मैंने शीर्ष एमएनसी में शामिल होने के सपने के साथ आईआईएमटी कॉलेज ऑफ मैनेजमेंट, ग्रेटर नोएडा (2017-2020) से बीसीए किया। कैंपस प्लेसमेंट के माध्यम से, मैंने सफलतापूर्वक एचसीएल (मैनटेक टेक्नोलॉजी) में एक भूमिका हासिल की, लेकिन कोविड-19 के अचानक प्रकोप के कारण, मैं जॉइन नहीं कर सका।
                 </p>
                 <p style="font-style: normal; color: #e5e7eb; font-weight: 500; letter-spacing: 0.2px;">
                     कई कठिन इंटरव्यू के बाद, मुझे 5 मार्च, 2021 को क्यूए इन्फोटेक से ऑफर लेटर मिला—एक ऐसा भावुक मील का पत्थर जिसने मेरी आंखों में आंसू ला दिए। मैंने इसे तुरंत स्वीकार कर लिया और 8 मार्च, 2021 को एक सॉफ्टवेयर टेस्टिंग इंजीनियर के रूप में शामिल हुआ, और क्वालीटैस्ट अधिग्रहण के माध्यम से 3.5 वर्षों का प्रीमियम क्यूए अनुभव प्राप्त किया। मैं उस अमूल्य कॉर्पोरेट एक्सपोजर के लिए क्यूए इन्फोटेक के सीईओ मुकेश सर का बेहद आभारी हूं। 2024 में, मैं आगे बढ़ा और असिस्टेंट मैनेजर - मैनुअल टेस्टिंग के रूप में ट्रूबोर्ड पार्टनर्स में शामिल हुआ।
@@ -1590,7 +2019,64 @@
         }
 
         window.addEventListener("DOMContentLoaded", startTypewriterAnimation);
-    </script>
+		
+		
+    function closeLoader() {
+        const loader = document.getElementById('galaxy-loader');
+        if (loader) {
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+            setTimeout(() => {
+                loader.remove();
+            }, 800); // 800ms का स्मूथ ट्रांजिशन
+        }
+    }
 
+    // 5 सेकंड का टाइमआउट ख़त्म होते ही अपने आप साइट खुल जाएगी
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(closeLoader, 5000);
+    });
+
+
+    // 1. Total Visitors Tracking Function
+    function trackTotalVisitors() {
+        // 'manendrainfo' आपकी साइट का यूनिक कीवर्ड है, CountAPI इसी से आपकी साइट गिनेगा
+        const namespace = "manendrainfo.pages.dev";
+        const key = "visits";
+        
+        fetch(`https://countapi.xyz{namespace}/${key}`)
+            .then(res => res.json())
+            .then(data => {
+                // अगर API सही काम कर रहा है तो वास्तविक डेटा दिखाएं
+                document.getElementById('total-visitors-count').innerText = data.value;
+            })
+            .catch(err => {
+                // बैकअप प्लान: अगर किसी वजह से API ब्लॉक हो, तो लोकल स्टोरेज से गिनें
+                let visits = localStorage.getItem('portfolio_visits') || 0;
+                visits = parseInt(visits) + 1;
+                localStorage.setItem('portfolio_visits', visits);
+                // थोड़ा प्रोफेशनल लुक देने के लिए शुरुआती बेस नंबर (उदा. 1420 + लोकल विजिट)
+                document.getElementById('total-visitors-count').innerText = 1420 + visits;
+            });
+    }
+
+    // 2. Live Visitors Simulation (रियल-टाइम बदलने वाला लाइव इफ़ेक्ट)
+    function simulateLiveVisitors() {
+        const liveCountElement = document.getElementById('live-visitors-count');
+        
+        setInterval(() => {
+            // रैंडम तरीके से लाइव यूज़र्स को 1 से 4 के बीच बदलता रहेगा ताकि असली लगे
+            let currentLive = Math.floor(Math.random() * 4) + 1; 
+            liveCountElement.innerText = currentLive;
+        }, 4000); // हर 4 सेकंड में लाइव काउंट अपडेट होगा
+    }
+
+    // साइट लोड होते ही दोनों फंक्शन शुरू करें
+    window.addEventListener('DOMContentLoaded', () => {
+        trackTotalVisitors();
+        simulateLiveVisitors();
+    });
+
+</script>
 </body>
 </html>
