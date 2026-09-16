@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Manendra Info | Professional Portfolio Website</title>
-    <meta name="description" content="Welcome to the official portfolio of Manendra Patel. Explore my latest tech projects, development skills, and professional services.">
-    <meta name="keywords" content="Manendra Patel info, manendra patel information, Subhan Khera, subhan khera, Manendra Info, Manendra Portfolio, manendrainfo, manendrainfo.pages.dev, manendra info pages dev,  manendra ms ji, manendra patel MS, Manendra Patel Ji, Manendra Patel (MS), Manendra, Manendra Singh, Manendra Patel Hardoi, manendra patel hardoi, manendra patel lucknow">
+    <title>Manendra-Software Test Engineer</title>
+    <meta name="description" content="Official portfolio of Manendra Patel(MS). Explore my latest tech projects, testing skills, and professional services.">
+    <meta name="keywords" content="Manendra Patel info, manendra patel sandila, manendra patel Gausganj,manendra patel information, Subhan Khera,manendra patel lko,manendra patel Software Engineer,manendra patel subhan khera, Manendra Info, Manendra Portfolio, manendrainfo, manendrainfo.pages.dev, manendra info pages dev,  manendra ms ji, manendra patel MS, Manendra Patel Ji, Manendra Patel (MS), Manendra, Manendra Singh, Manendra Patel Hardoi, manendra patel hardoi, manendra patel lucknow">
     <meta name="robots" content="index, follow">
 	<meta name="google-site-verification" content="54IWCcRZv5b9C1QfeYAz9ZqnJqYT9N63dupuWfK7oF0" />
 	
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -849,7 +850,6 @@
         }
 
 
-
         /* 👑 REBUILT HIGH-DENSITY RESPONSIVE ENGINE (COMPACT SIDE-BY-SIDE MOBILE BUTTONS) */
         @media (max-width: 968px) {
             header { padding: 15px 5%; flex-direction: row; justify-content: space-between; }
@@ -1285,6 +1285,57 @@
 }
 
 	
+/* ==================== ✈️ CLEAN JET LAUNCH BUTTON ==================== */
+        .skip-intro-btn {
+            position: relative;
+            padding: 7px 7px;
+            background: rgba(9, 17, 36, 0.85);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+             color: #9ca3af;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+            transition: all 0.3s ease;
+            overflow: visible !important;
+        }
+
+        .skip-intro-btn:hover {
+            box-shadow: 0 0 15px rgba(255, 157, 52, 0.2);
+			Color : #fff;
+            transform: translateY(-2px);
+        }
+
+        .skip-intro-btn .jet-icon-fly {
+            color: var(--primary-glow);
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* ✈️ TAKEOFF ANIMATION: Click hone par jet screen faad kar diagonally uad jayega */
+        .skip-intro-btn.jet-launching .jet-icon-fly {
+            animation: cleanJetTakeoff 0.7s cubic-bezier(0.11, 0, 0.5, 0) forwards;
+        }
+
+        @keyframes cleanJetTakeoff {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(-8px, 8px) rotate(-15deg) scale(0.9); /* Recoil pull-back */
+            }
+            100% {
+                transform: translate(1000px, -800px) rotate(45deg) scale(3); /* Skyward Blast */
+                opacity: 0;
+            }
+        }	
+
+
 		
     </style>
 </head>
@@ -1327,15 +1378,13 @@
         <div class="progress-container">
             <div class="progress-fill"></div>
         </div>
-        <button id="skip-loader-btn" onclick="closeLoader()">
-            Skip Intro <i class="fas fa-space-shuttle"></i>
-        </button>
+        <button class="skip-intro-btn" onclick="triggerCleanJetLaunch(this, 'about-view')">
+    <span>Skip Intro</span>
+    <i class="fa-solid fa-paper-plane jet-icon-fly" id="jetIcon"></i>
+</button>
     </div>
 </div>
-<!-- Jupiter Space Loader End -->
 
-
-	
     <div class="glowing-orb"></div>
 
     <div id="toast" class="toast-notification">
@@ -1344,9 +1393,9 @@
     </div>
 
     <header>
-        <div class="logo" style="display: flex; align-items: center; height: 44px; cursor: pointer;" onclick="switchPage('home-view')">
-            <img src="https://lh3.googleusercontent.com/d/1JqDSpYLph0XpV7RYFGzkSCAmygaetELH" alt="MS Technology Logo" style="height: 180%; width: auto; object-fit: contain; margin-right: 10px;">
-            <h1 style="font-size: 1.25rem; font-weight: 800; background: linear-gradient(to right, #ffffff, var(--text-gray)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">A MS Technology</h1>
+        <div class="logo" style="display: flex; align-items: center; height: 50px; cursor: pointer;" onclick="switchPage('home-view')">
+            <img src="https://lh3.googleusercontent.com/d/1a_Ixp96nnfXpY7sfJbuDOdLrHf2WBumd" alt="MS Photo" style="height: 200%; width: auto; object-fit: contain; margin-right: 10px;">
+            <h1 style="font-size: 2.05rem; font-weight: 800; background: linear-gradient(to right, #ffffff, var(--text-gray)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Manendra Patel (MS)</h1>
         </div>
         
         <button class="menu-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
@@ -1377,7 +1426,7 @@
                 </div>
 
                 <div class="hero-units-dashboard reveal-element" style="margin-top: 50px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.04); width: 100%; overflow: hidden; position: relative;">
-                    <br> <p>Powered globally by MS Technology Units</p>
+                    <br> <p>Powered by MS Technology Units</p>
                     
                     <br> <div class="infinite-slider-container" style="display: flex; width: 100%; overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);">
                       <br>   <div class="logo-track-move">
@@ -1415,7 +1464,7 @@
                         <div class="code-line">    <span class="comment">// Executing verification loop for MS Technology Leader</span></div>
                         <div class="code-line">    <span class="keyword">@Test</span></div>
                         <div class="code-line">    <span class="keyword">public void</span> <span class="function">verifySoftwareEngineerProfile</span>() {</div>
-                        <div class="code-line">        String role = <span class="string">"Assistant Manager - Manual Testing"</span>;</div>
+                        <div class="code-line">        String role = <span class="string">"Software Test Engineer"</span>;</div>
                         <div class="code-line">        String coreSkills[] = {<span class="string">"Functional"</span>, <span class="string">"API Postman"</span>, <span class="string">"DB Testing"</span>};</div>
                         <div class="code-line">        int businessUnitsRunning = <span class="string">3</span>; <span class="comment">// Powered by A MS Technology</span></div>
                         <div class="code-line">        System.out.println(<span class="string">"Status: Flawless Execution..."</span>);</div>
@@ -1703,7 +1752,7 @@
             <div class="footer-col">
                 <h3>Location Address</h3>
                 <p><i class="fa-solid fa-location-dot"></i> Patel Computers Tech Zone</p>
-                <p style="padding-left: 24px; margin-top: -10px;">Subhan Khera, Gausganj (Hardoi) 241305</p>
+                <p style="padding-left: 24px; margin-top: -10px;">Subhan Khera, Gausganj, (Hardoi) Uttar Pradesh-241305</p>
                 <p><i class="fa-solid fa-envelope"></i> manendrapatel1@outlook.com</p>
             </div>
 
@@ -1742,7 +1791,7 @@
                     मैंने अपने तकनीकी सफर की शुरुआत 2013 में अपने गृहनगर में पटेल कंप्यूटर्स के मालिक के रूप में की थी। स्कूल की पढ़ाई के दौरान कम स्पेसिफिकेशन वाले सिस्टम और धीमी इंटरनेट स्पीड के दौर में भी मैंने हार मानने से इनकार कर दिया, और इसी फेज के दौरान मैं अपने कंप्यूटर गुरु, <a href="PASTE_YOUR_LINK_HERE" target="_blank" style="color: var(--primary-glow); text-decoration: none; font-weight: 700; border-bottom: 1px dashed var(--primary-glow); transition: all 0.3s;">अमर कुमार तिवारी</a> से मिला, जिन्होंने कंप्यूटर के प्रति मेरे जुनून को जगाया। गहन विशेषज्ञता हासिल करने की इच्छा से, मैंने शीर्ष एमएनसी में शामिल होने के सपने के साथ आईआईएमटी कॉलेज ऑफ मैनेजमेंट, ग्रेटर नोएडा (2017-2020) से बीसीए किया। कैंपस प्लेसमेंट के माध्यम से, मैंने सफलतापूर्वक एचसीएल (मैनटेक टेक्नोलॉजी) में एक भूमिका हासिल की, लेकिन कोविड-19 के अचानक प्रकोप के कारण, मैं जॉइन नहीं कर सका।
                 </p>
                 <p style="font-style: normal; color: #e5e7eb; font-weight: 500; letter-spacing: 0.2px;">
-                    कई कठिन इंटरव्यू के बाद, मुझे 5 मार्च, 2021 को क्यूए इन्फोटेक से ऑफर लेटर मिला—एक ऐसा भावुक मील का पत्थर जिसने मेरी आंखों में आंसू ला दिए। मैंने इसे तुरंत स्वीकार कर लिया और 8 मार्च, 2021 को एक सॉफ्टवेयर टेस्टिंग इंजीनियर के रूप में शामिल हुआ, और क्वालीटैस्ट अधिग्रहण के माध्यम से 3.5 वर्षों का प्रीमियम क्यूए अनुभव प्राप्त किया। मैं उस अमूल्य कॉर्पोरेट एक्सपोजर के लिए क्यूए इन्फोटेक के सीईओ मुकेश सर का बेहद आभारी हूं। 2024 में, मैं आगे बढ़ा और असिस्टेंट मैनेजर - मैनुअल टेस्टिंग के रूप में ट्रूबोर्ड पार्टनर्स में शामिल हुआ।
+                    कई कठिन इंटरव्यू के बाद, मुझे 5 मार्च, 2021 को QA Infotech से ऑफर लेटर मिला—एक ऐसा भावुक मील का पत्थर जिसने मेरी आंखों में आंसू ला दिए। मैंने इसे तुरंत स्वीकार कर लिया और 8 मार्च, 2021 को एक सॉफ्टवेयर टेस्टिंग इंजीनियर के रूप में शामिल हुआ, और क्वालीटैस्ट अधिग्रहण के माध्यम से 3.5 वर्षों का प्रीमियम क्यूए अनुभव प्राप्त किया। मैं उस अमूल्य कॉर्पोरेट एक्सपोजर के लिए क्यूए इन्फोटेक के सीईओ मुकेश सर का बेहद आभारी हूं। 2024 में, मैं आगे बढ़ा और असिस्टेंट मैनेजर - मैनुअल टेस्टिंग के रूप में ट्रूबोर्ड पार्टनर्स में शामिल हुआ।
                 </p>
                 <p style="font-style: normal; color: #e5e7eb; font-weight: 500; letter-spacing: 0.2px;">
                     उद्यमिता (Entrepreneurial) के मोर्चे पर, जबकि मेरे बड़े भाई ने शुरू में 2013 से पटेल कंप्यूटर्स का प्रबंधन किया था, 2021 के रिमोट वर्क ट्रांजिशन ने मुझे परिचालन का विस्तार करने का सही अवसर दिया। 2024 में, मैंने अपनी दूसरी कॉर्पोरेट यूनिट पेश की: पटेल फिल्म्स - ए एमएस टेक्नोलॉजी, जो प्रीमियम सिनेमैटिक वेडिंग फोटोग्राफी और वीडियोग्राफी प्रदान करती है। इसे और विस्तारित करते हुए, फरवरी 2026 में, मैंने पटेल डिजिटल लाइब्रेरी लॉन्च की—प्रतियोगी परीक्षाओं के छात्रों के फोकस और प्रोडक्टिविटी को बढ़ाने के लिए एक आधुनिक, शांत, तकनीक-सक्षम इकोसिस्टम का निर्माण किया।
@@ -2039,6 +2088,9 @@
     });
 
 
+
+
+
     // 1. Total Visitors Tracking Function
     function trackTotalVisitors() {
         // 'manendrainfo' आपकी साइट का यूनिक कीवर्ड है, CountAPI इसी से आपकी साइट गिनेगा
@@ -2077,7 +2129,35 @@
         trackTotalVisitors();
         simulateLiveVisitors();
     });
+	
+	
+	// ✈️ DIRECT INTRO SKIP & JET LAUNCH TRIGGER (FIXED)
+        function triggerCleanJetLaunch(btnElement) {
+            if (btnElement.classList.contains('jet-launching')) return;
 
+            // 1. Jet launch animation start
+            btnElement.classList.add('jet-launching');
+
+            // 2. Exact 250ms baad intro loader instantly gayab ho jayega
+            setTimeout(() => {
+                // Galaxy loader screen ko close karein
+                if (typeof closeLoader === 'function') {
+                    closeLoader();
+                } else {
+                    const loader = document.getElementById('galaxy-loader');
+                    if (loader) {
+                        loader.style.opacity = '0';
+                        loader.style.visibility = 'hidden';
+                        setTimeout(() => loader.remove(), 400);
+                    }
+                }
+
+                // Reset icon state
+                setTimeout(() => {
+                    btnElement.classList.remove('jet-launching');
+                }, 600);
+            }, 250);
+        }
 </script>
 </body>
 </html>
