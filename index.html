@@ -178,8 +178,8 @@
 
 #skip-loader-btn {
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #9ca3af;
+    border: 1px solid rgba(243, 153, 8, 0.1);
+    color: #f27f1a;
     padding: 10px 24px;
     border-radius: 30px;
     font-size: 0.85rem;
@@ -846,6 +846,7 @@
         /* Mobile structure adjustments */
         @media (max-width: 768px) {
             .eco-card { height: 350px !important; }
+            
             .eco-card-front, .eco-card-back { padding: 25px 20px !important; }
         }
 
@@ -1344,41 +1345,35 @@
 <!-- Jupiter Space Loader Start -->
 <div id="galaxy-loader">
     <div class="space-scene">
-        <!-- पीछे के टिमटिमाते तारे -->
+        
         <div class="space-stars"></div>
         
-        <!-- सेंटर में चमकता सूर्य/तारा -->
+        
         <div class="solar-sun">
             <div class="sun-flare"></div>
         </div>
         
-        <!-- छोटे तैरते हुए उल्कापिंड/एस्टरॉयड रिंग -->
+      
         <div class="asteroid-ring"></div>
         
-        <!-- बैकग्राउंड में तैरते छोटे ग्रह -->
-        <div class="distant-planet planet-saturn"></div>
+          <div class="distant-planet planet-saturn"></div>
         <div class="distant-planet planet-blue"></div>
 
-        
-<!-- kone me विशालकाय जुपिटर ग्रह -->
 <div class="giant-jupiter">
     <div class="jupiter-texture"></div>
     <div class="jupiter-shadow"></div>
 </div>
 
-<!-- जुपिटर का असली और घूमता हुआ छोटा चाँद -->
 <div class="jupiter-moon"></div>
-
 
     </div>
 
-    <!-- लोडिंग टेक्स्ट और स्किप बटन का पैनल -->
     <div class="loader-interface">
         <div class="loading-title">Quality takes a moment...</div>
         <div class="progress-container">
             <div class="progress-fill"></div>
         </div>
-        <button class="skip-intro-btn" onclick="triggerCleanJetLaunch(this, 'about-view')">
+        <button class="skip-intro-btn" onclick="triggerCleanJetLaunch(this)" style="transform: translateY(-20px);">
     <span>Skip Intro</span>
     <i class="fa-solid fa-paper-plane jet-icon-fly" id="jetIcon"></i>
 </button>
@@ -1394,8 +1389,8 @@
 
     <header>
         <div class="logo" style="display: flex; align-items: center; height: 50px; cursor: pointer;" onclick="switchPage('home-view')">
-            <img src="https://lh3.googleusercontent.com/d/1a_Ixp96nnfXpY7sfJbuDOdLrHf2WBumd" alt="MS Photo" style="height: 200%; width: auto; object-fit: contain; margin-right: 10px;">
-            <h1 style="font-size: 2.05rem; font-weight: 800; background: linear-gradient(to right, #ffffff, var(--text-gray)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Manendra Patel (MS)</h1>
+            <img src="https://lh3.googleusercontent.com/d/1a_Ixp96nnfXpY7sfJbuDOdLrHf2WBumd" alt="MS Photo" style="height: 180%; width: auto; object-fit: contain; margin-right: 10px;">
+            <h1 style="font-size: 2.05rem; font-weight: 800; background: linear-gradient(to right, #05e4d6, var(--text-gray)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Manendra Patel (MS)</h1>
         </div>
         
         <button class="menu-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
@@ -1421,7 +1416,7 @@
                 </div>
                 
                 <div class="btn-group">
-                    <a href="PASTE_YOUR_CV_LINK" target="_blank" class="btn-glow">My Intro</a>
+                    <a href="PASTE_YOUR_CV_LINK" target='about-view' class="btn-glow">My Intro</a>
                     <a onclick="switchPage('expertise-view')" class="btn-outline" style="cursor:pointer;">Explore Expertise</a>
                 </div>
 
